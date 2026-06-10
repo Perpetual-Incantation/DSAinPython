@@ -1,0 +1,43 @@
+Q1) Delete an element from middle in an array.
+Approach: Find the element to be deleted thn run a loop from tht idx and shift the elements leftward
+Code: 
+def delete(arr,t):
+    n=len(arr)
+    for i in range(n):
+        if arr[i]==t:
+            for j in range(i,n-1):
+                arr[j]= arr[j+1]
+            arr.pop()
+            break
+    return arr
+
+Q2) https://www.geeksforgeeks.org/problems/reverse-an-array/1
+Approach: Used the swapping method and taken 2 pointer approach
+Code:
+class Solution:
+    def reverseArray(self, arr):
+        # code here
+        left=0
+        right=len(arr)-1
+        while left<right:
+            temp=arr[left]
+            arr[left]=arr[right]
+            arr[right]=temp
+            left=left+1
+            right=right-1
+
+Q3) https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+Approach: Find the duplicate element and then shift left idx by 1 to right and replace the left number with right then return the left idx as 
+whole array except till left idx contains duplicate numbers
+Code: 
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        left=0
+        for r in range(len(nums)):
+            if nums[r]!=nums[left]:
+                left=left+1
+                nums[left]= nums[r]
+
+        return left+1
+        
+            
